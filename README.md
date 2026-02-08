@@ -93,4 +93,75 @@ Helix is built on a **Trust-Based Design** that assumes researchers are good act
 * **Mechanisms:** AMM (Linear Bonding Curve), TWAP, IP-NFTs
 
 ---
-© 2026 Helix Protocol. Accelerating the pace of human discovery on Flare.
+# 📦 Helix Protocol Documentation
+
+---
+
+## 🚀 Technical Setup & Smart Contracts
+
+Helix is designed for high-integrity execution on the Flare Network, utilizing the **viaIR** compiler pipeline to manage complex memory operations required by the Flare Data Connector (FDC).
+
+### Installation & Environment
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-repo/helix-desci.git
+   cd helix-desci/packages/hardhat
+````
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+
+   Create a `.env` file in the root of the Hardhat directory based on the following template:
+
+   ```env
+   PRIVATE_KEY=your_private_key_here
+   COSTON2_RPC=https://coston2-api.flare.network/ext/C/rpc
+   MAINNET_FORKING_ENABLED=false
+   ```
+
+### Deployment & Explorer Links (Coston2 Testnet)
+
+| Contract    | Address | 
+| ----------- | ------- |
+| HelixMarket | 0x1Cf3B6067FdC3CcF821FdcB95a189dA9dd07d163   | 
+| MockFXRP    | 0x015852502f55534400000000000000000000000000   |
+
+> **Note:** For the hackathon demo, if not deployed to a live network, run the simulation:
+>
+> ```bash
+> npx hardhat test test/helix-economy-test.js
+> ```
+
+---
+
+## 📜 License
+
+MIT License
+
+Copyright (c) 2026 Helix Protocol
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
