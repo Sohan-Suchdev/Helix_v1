@@ -7,25 +7,11 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import { useTheme } from "next-themes";
 import { Toaster } from "react-hot-toast";
 import { WagmiProvider } from "wagmi";
-import { Footer } from "~~/components/Footer";
-import { Header } from "~~/components/Header";
-import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import { BlockieAvatar } from "~~/components/scaffold-eth/BlockieAvatar";
+import { Header } from "~~/components/helix/Header";
 
-const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="relative flex flex-col flex-1">{children}</main>
-        <Footer />
-      </div>
-      <Toaster />
-    </>
-  );
-};
-
-export const queryClient = new QueryClient({
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
@@ -45,12 +31,17 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <ProgressBar height="3px" color="#2299dd" />
+        <ProgressBar height="3px" color="#1FAE9F" options={{ showSpinner: false }} />
         <RainbowKitProvider
           avatar={BlockieAvatar}
           theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
         >
-          <ScaffoldEthApp>{children}</ScaffoldEthApp>
+          {/* Main App Wrapper - Forces Navy Background */}
+          <div className="flex flex-col min-h-screen bg-helix-navy text-helix-text-main font-sans">
+            <Header />
+            <main className="relative flex flex-col flex-1">{children}</main>
+          </div>
+          <Toaster />
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

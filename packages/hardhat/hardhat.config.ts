@@ -54,6 +54,13 @@ const config: HardhatUserConfig = {
         enabled: process.env.MAINNET_FORKING_ENABLED === "true",
       },
     },
+    // --- ADDED COSTON 2 HERE ---
+    coston2: {
+        url: "https://coston2-api.flare.network/ext/C/rpc",
+        accounts: [deployerPrivateKey],
+        chainId: 114,
+    },
+    // ---------------------------
     mainnet: {
       url: "https://mainnet.rpc.buidlguidl.com",
       accounts: [deployerPrivateKey],
@@ -129,7 +136,28 @@ const config: HardhatUserConfig = {
   },
   // Configuration for harhdat-verify plugin
   etherscan: {
-    apiKey: `${etherscanApiKey}`,
+    apiKey: {
+        // Is not required by Blockscout (Coston2 explorer) but field is required
+        coston2: "no-api-key-needed", 
+        // For other networks, use the single key you had
+        mainnet: etherscanApiKey,
+        sepolia: etherscanApiKey,
+        arbitrumOne: etherscanApiKey,
+        optimisticEthereum: etherscanApiKey,
+        polygon: etherscanApiKey,
+        base: etherscanApiKey,
+        scroll: etherscanApiKey,
+    },
+    customChains: [
+        {
+            network: "coston2",
+            chainId: 114,
+            urls: {
+                apiURL: "https://coston2-explorer.flare.network/api",
+                browserURL: "https://coston2-explorer.flare.network",
+            },
+        },
+    ],
   },
   // Configuration for etherscan-verify from hardhat-deploy plugin
   verify: {
