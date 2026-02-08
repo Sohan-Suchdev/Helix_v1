@@ -1,91 +1,70 @@
-# 🏗 Scaffold-ETH 2
+# 🧬 Helix DeSci Protocol: Unlocking the Future of Medical Funding
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+**Bridging the £180M "Valley of Death" through XRP Liquidity and Verifiable Science.**
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+Helix is a decentralized science (DeSci) ecosystem built on the Flare Network. We solve the medical research funding crisis by aggregating distributed expertise through prediction markets, fueled by the $100B+ XRP market cap via FAssets.
 
-> [!NOTE]
-> 🤖 Scaffold-ETH 2 is AI-ready! It has everything agents need to build on Ethereum. Check `.agents/`, `.claude/`, `.opencode` or `.cursor/` for more info.
+---
 
-⚙️ Built using NextJS, RainbowKit, Foundry/Hardhat, Wagmi, Viem, and Typescript.
+## 🛑 The Problem: A Systemic Allocation Failure
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+Medical research faces a critical mismatch between available capital and promising science. While global health research requires **£180 million annually** to bridge the "Valley of Death" (the gap between discovery and commercialization), the core issue isn't capital scarcity—it's **allocation inefficiency.**
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+### The Numbers
+* **The VC Drought:** VC funding for medical research is down **65%** (Q2 2025 vs 2021).
+* **The IPO Freeze:** Fewer than 10 biotech IPOs occurred in 2025, compared to over 100 in 2021.
+* **The Paradox:** Universities produce thousands of viable Phase 2 trials annually with a 50% success rate, yet capital remains on the sidelines.
 
-## Requirements
+### Why the Gap?
+1. **The NIH Bottleneck:** Review cycles take 12 months on average. Traditional grant review relies on small committees (5-15 people) sequentially evaluating thousands of complex proposals across oncology, neurology, and cardiology. No small group possesses the breadth and depth required to price this risk accurately.
+2. **Binary Outcomes:** Committees make quarterly, binary decisions (fund/reject) based on information that is often months out of date by the time funds are awarded.
+3. **Information Asymmetry:** VCs wait for Phase 2 data to de-risk investments, but researchers need funding to *generate* that data. The loop is broken.
 
-Before you begin, you need to install the following tools:
+---
 
-- [Node (>= v20.18.3)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+## 💡 The Solution: Prediction Markets for Research Quality
 
-## Quickstart
+Helix aggregates distributed expertise to evaluate hundreds of proposals simultaneously within a 30-day window. We replace bureaucracy with an **incentivized signal.**
 
-To get started with Scaffold-ETH 2, follow the steps below:
+### The Mechanism
+* **Expert-Only Markets:** Credentialed domain specialists trade YES/NO tokens based on their conviction in a proposal's scientific merit and feasibility.
+* **Reputation Weighting:** Wealth does not equal wisdom. Trades are weighted by a **Reputation Score** (PhD, h-index, prediction accuracy). A high-reputation specialist’s $1k trade carries **20-50x more weight** than a generalist’s $10k trade.
+* **Algorithmic Capital Allocation:** When a proposal reaches an **80% confidence threshold** (significantly higher than the 50% baseline), smart contracts automatically trigger funding. No committees, no politics.
+* **Risk-Free Signal:** If research is unfunded, experts receive **full refunds**. This encourages honest participation without the risk of capital loss on projects that fall below the funding threshold.
 
-1. Install the latest version of Scaffold-ETH 2
+---
 
-```
-npx create-eth@latest
-```
+## 🛠 Tech Stack & Flare Integration
 
-This command will install all the necessary packages and dependencies, so it might take a while.
+Helix is built as an **Enshrined Data Protocol**, leveraging Flare’s L1 data capabilities to ensure scientific integrity.
 
-> [!NOTE]
-> You can also initialize your project with one of our extensions to add specific features or starter-kits. Learn more in our [extensions documentation](https://docs.scaffoldeth.io/extensions/).
+### The Flare Stack
+* **Flare Data Connector (FDC):** Used for automated verification of researcher identities (web scraping institutional affiliations) and clinical trial registrations. It acts as the final "Arbitrator of Truth," fetching trial results from ClinicalTrials.gov to resolve markets trustlessly.
+* **Flare Time Series Oracle (FTSO):** Tracks the real-time price of XRP/USD. Since grant targets are set in USD but funded in FXRP/ETH, the FTSO ensures the scientist receives the exact purchasing power required for their trial.
+* **FAssets (FXRP):** Unlocks the **$86M+ of FXRP** currently sitting idle on Flare. XRP holders provide the **CAPITAL** (Liquidity Providers) while domain specialists provide the **SIGNAL** (Prediction).
 
-2. Run a local network in the first terminal:
+### Technical Features
+* **AMM Linear Bonding Curve:** A custom Automated Market Maker built in Solidity to manage token supply and pricing.
+* **TWAP Implementation:** We use Time-Weighted Average Pricing to determine resolution thresholds, preventing flash-crashes or premature market closure due to short-term volatility.
+* **IP-NFTs (ERC-721):** Every proposal is minted as an IP-NFT, anchoring the project to the researcher's identity and protecting their intellectual property.
+* **viaIR Optimization:** Our contracts utilize the Solidity IR pipeline to handle the complex stack demands of the FDC and multi-asset pools.
 
-```
-yarn chain
-```
+---
 
-This command starts a local Ethereum network that runs on your local machine and can be used for testing and development. Learn how to [customize your network configuration](https://docs.scaffoldeth.io/quick-start/environment#1-initialize-a-local-blockchain).
+## ⚖️ Ethical Safeguards & Mitigation
 
-3. On a second terminal, deploy the test contract:
+Helix is built on a "Trust-Based Design" that assumes researchers are good actors while programmatically preventing exploitation.
 
-```
-yarn deploy
-```
+* **Insider Trading Blockade:** Helix uses a "Denied Trading List" that identifies researchers and their immediate collaborators, preventing them from trading on their own markets.
+* **HFT & Manipulation Prevention:** A transaction commission and sell-tax disincentivize high-frequency trading and predatory scalping, ensuring the market remains focused on scientific value, not speculation.
+* **Identity Verification:** Wallet-to-identity mapping ensures that reputation scores are tied to real-world credentials, preventing Sybil attacks.
+* **1x Return Cap:** Helix is designed for **recognition and grant-funding**, not hyper-speculation. This focuses participation on scientific advancement rather than "pumping" tokens.
 
-This command deploys a test smart contract to the local network. You can find more information about how to customize your contract and deployment script in our [documentation](https://docs.scaffoldeth.io/quick-start/environment#2-deploy-your-smart-contract).
+---
 
-4. On a third terminal, start your NextJS app:
+## 💬 Flare Feedback: Why We Chose Flare
 
-```
-yarn start
-```
+Most prediction markets fail because they rely on a **centralized resolver** or a committee of humans to decide who won. This creates a single point of failure and a massive "Trust Debt."
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-**What's next**:
-
-Visit the [What's next section of our docs](https://docs.scaffoldeth.io/quick-start/environment#whats-next) to learn how to:
-
-- Edit your smart contracts
-- Edit your deployment scripts
-- Customize your frontend
-- Edit the app config
-- Writing and running tests
-- [Setting up external services and API keys](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts#configuration-of-third-party-services-for-production-grade-apps)
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn all the technical details and guides of Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+**On Helix, the science is verifiable because Flare is a Data Network.**
+By using the **FDC**, we inherited the security of the entire Flare validator set to prove clinical trial results. We didn't have to build our own oracle; we used the one enshrined in the network. Furthermore, the **FAsset system** provided us with a unique value proposition: the ability to tell the XRP community that their idle assets can literally cure diseases.
