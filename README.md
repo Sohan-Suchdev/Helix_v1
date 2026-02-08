@@ -2,7 +2,7 @@
 
 **Unlocking the $100B+ XRP Ecosystem to Bridge the £180M "Valley of Death" in Medical Research.**
 
-Helix is an "Enshrined Data" Prediction Market on the Flare Network. We aggregate distributed expertise to identify and fund high-potential clinical trials, replacing slow, centralized grant committees with a high-integrity, liquid decentralized economy.
+Helix is an Prediction Markt on the Flare Network. We aggregate distributed expertise to identify and fund high-potential clinical trials, replacing slow, centralized grant committees with a high-integrity, liquid decentralized economy.
 
 ---
 
@@ -47,7 +47,6 @@ Helix aggregates distributed expertise, enabling hundreds of specialists to eval
 Helix is built as an **Enshrined Data Protocol**, leveraging Flare’s L1 data capabilities to ensure scientific and financial integrity.
 
 ### 1. Verification & Resolution (Flare Data Connector)
-The **FDC** is our "Arbitrator of Truth." 
 * **Pre-Market:** Validates institutional affiliation and clinical trial registrations via attestation requests to catch fraud early.
 * **Post-Market:** Fetches and verifies trial results (ClinicalTrials.gov, PubMed) via Merkle Proofs to trustlessly resolve markets and payout winners.
 
@@ -61,6 +60,10 @@ We unlock the **$128B XRP market cap**. Through Flare’s **FAssets**, XRP holde
 
 ### 4. IP-NFTs & Data Anchoring
 Every proposal is minted as an **IP-NFT**, associating the project with the researcher's on-chain identity and protecting their intellectual property. Research data is anchored to ensure a permanent, immutable record of the discovery process.
+
+Integrating the Flare stack was a highlight of our development process, particularly due to how it abstracts the complexities of cross-chain data. The FAsset system made XRP integration almost "plug-and-play"; by treating FXRP as a standard ERC-20, we could unlock billions in dormant liquidity without writing a single line of custom bridging code. This allowed our smart contracts to focus entirely on the DeSci bonding curves and grant logic rather than infrastructure.
+
+Our experience with the Flare Data Connector (FDC) was equally streamlined. The protocol’s ability to handle attestation requests and merkle proofs meant we didn't have to build expensive, centralized off-chain listeners to verify clinical trials. Instead, we could trust Flare’s enshrined consensus to deliver verified Web2 data directly into our EVM environment.
 
 ---
 
