@@ -10,6 +10,7 @@ import { WagmiProvider } from "wagmi";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { BlockieAvatar } from "~~/components/scaffold-eth/BlockieAvatar";
 import { Header } from "~~/components/helix/Header";
+import { HelixProvider } from "~~/context/HelixContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,10 +38,12 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
           theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
         >
           {/* Main App Wrapper - Forces Navy Background */}
-          <div className="flex flex-col min-h-screen bg-helix-navy text-helix-text-main font-sans">
-            <Header />
-            <main className="relative flex flex-col flex-1">{children}</main>
-          </div>
+          <HelixProvider>
+            <div className="flex flex-col min-h-screen bg-helix-navy text-helix-text-main font-sans">
+              <Header />
+              <main className="relative flex flex-col flex-1">{children}</main>
+            </div>
+          </HelixProvider>
           <Toaster />
         </RainbowKitProvider>
       </QueryClientProvider>

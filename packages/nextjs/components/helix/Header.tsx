@@ -9,7 +9,8 @@ export const Header = () => {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: "Marketplace", href: "/", icon: Home },
+    { name: "Home", href: "/", icon: Home },              // Landing Page
+    { name: "Marketplace", href: "/marketplace", icon: Activity }, // The App
     { name: "Submit Proposal", href: "/create", icon: PlusCircle },
   ];
 

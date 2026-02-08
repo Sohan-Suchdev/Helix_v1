@@ -1,27 +1,39 @@
 "use client";
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
+import { useHelix } from "~~/context/HelixContext"; 
+import { Loader2, CheckCircle } from "lucide-react";
 
-export const BuyPanel = () => {
+export const BuyPanel = ({ projectId }: { projectId: number }) => {
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { buyToken } = useHelix(); 
 
-  const handleBuy = () => {
+  // Accept type: boolean (true = YES, false = NO)
+  const handleBuy = (isYes: boolean) => {
+    if (!amount) return;
     setLoading(true);
-    // Simulate transaction
+    
     setTimeout(() => {
+      buyToken(projectId, Number(amount), isYes); // Pass isYes
       setLoading(false);
+      setSuccess(true);
       setAmount("");
-      alert("Transaction Submitted to Coston2!");
-    }, 2000);
+      setTimeout(() => setSuccess(false), 3000);
+    }, 1500);
   };
 
   return (
     <div className="bg-helix-dark border border-slate-800 rounded-2xl p-6">
       <h3 className="text-lg font-serif text-slate-100 mb-4">Trade Position</h3>
       
+      {success && (
+        <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-4 flex items-center gap-3 text-emerald-400 mb-4">
+          <CheckCircle size={20} /> <span className="font-mono text-sm">Order Filled!</span>
+        </div>
+      )}
+
       <div className="space-y-4">
-        {/* Input */}
         <div>
           <label className="text-xs text-slate-400 font-mono">Amount (USDC)</label>
           <div className="relative mt-2">
@@ -36,31 +48,20 @@ export const BuyPanel = () => {
           </div>
         </div>
 
-        {/* Calculations */}
-        {amount && (
-          <div className="p-3 bg-helix-teal/10 rounded-lg border border-helix-teal/20">
-            <div className="flex justify-between text-sm">
-              <span className="text-slate-400">Receive:</span>
-              <span className="text-helix-teal font-mono">≈ {(Number(amount) * 1.2).toFixed(2)} YES</span>
-            </div>
-            <div className="flex justify-between text-xs mt-1">
-              <span className="text-slate-500">Price Impact:</span>
-              <span className="text-emerald-400 font-mono">+0.4%</span>
-            </div>
-          </div>
-        )}
-
-        {/* Buttons */}
         <div className="grid grid-cols-2 gap-3 pt-2">
           <button 
-            onClick={handleBuy}
-            disabled={loading}
-            className="bg-helix-teal hover:bg-emerald-500 text-slate-900 font-bold py-3 rounded-lg transition-colors flex justify-center items-center"
+            onClick={() => handleBuy(true)} // Buy YES
+            disabled={loading || !amount}
+            className="bg-helix-teal hover:bg-emerald-500 text-slate-900 font-bold py-3 rounded-lg transition-colors"
           >
-            {loading ? <Loader2 className="animate-spin" /> : "Buy YES"}
+            {loading ? <Loader2 className="animate-spin mx-auto"/> : "Buy YES"}
           </button>
-          <button className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-3 rounded-lg transition-colors">
-            Buy NO
+          <button 
+             onClick={() => handleBuy(false)} // Buy NO
+             disabled={loading || !amount}
+             className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-lg transition-colors"
+          >
+            {loading ? <Loader2 className="animate-spin mx-auto"/> : "Buy NO"}
           </button>
         </div>
       </div>
