@@ -1,70 +1,93 @@
-# 🧬 Helix DeSci Protocol: Unlocking the Future of Medical Funding
+# 🧬 Helix DeSci Protocol
 
-**Bridging the £180M "Valley of Death" through XRP Liquidity and Verifiable Science.**
+**Unlocking the $100B+ XRP Ecosystem to Bridge the £180M "Valley of Death" in Medical Research.**
 
-Helix is a decentralized science (DeSci) ecosystem built on the Flare Network. We solve the medical research funding crisis by aggregating distributed expertise through prediction markets, fueled by the $100B+ XRP market cap via FAssets.
+Helix is an "Enshrined Data" Prediction Market on the Flare Network. We aggregate distributed expertise to identify and fund high-potential clinical trials, replacing slow, centralized grant committees with a high-integrity, liquid decentralized economy.
 
 ---
 
-## 🛑 The Problem: A Systemic Allocation Failure
+## 🛑 The Problem: Allocation Inefficiency
 
-Medical research faces a critical mismatch between available capital and promising science. While global health research requires **£180 million annually** to bridge the "Valley of Death" (the gap between discovery and commercialization), the core issue isn't capital scarcity—it's **allocation inefficiency.**
+Medical research funding faces a critical mismatch between available capital and promising science. The issue isn't a lack of money; it's a **failure of discovery.**
 
 ### The Numbers
-* **The VC Drought:** VC funding for medical research is down **65%** (Q2 2025 vs 2021).
-* **The IPO Freeze:** Fewer than 10 biotech IPOs occurred in 2025, compared to over 100 in 2021.
-* **The Paradox:** Universities produce thousands of viable Phase 2 trials annually with a 50% success rate, yet capital remains on the sidelines.
+* **The Valley of Death:** Global health research requires **£180 million annually** to bridge the gap between discovery and commercialization.
+* **The UK Gap:** The UK faces a **£1 billion cancer research funding gap** over the next decade.
+* **Capital Flight:** VC funding for medical research is down **65%** (Q2 2025 vs 2021), and biotech IPOs have plummeted from 100+ to fewer than 10 annually.
 
 ### Why the Gap?
-1. **The NIH Bottleneck:** Review cycles take 12 months on average. Traditional grant review relies on small committees (5-15 people) sequentially evaluating thousands of complex proposals across oncology, neurology, and cardiology. No small group possesses the breadth and depth required to price this risk accurately.
-2. **Binary Outcomes:** Committees make quarterly, binary decisions (fund/reject) based on information that is often months out of date by the time funds are awarded.
-3. **Information Asymmetry:** VCs wait for Phase 2 data to de-risk investments, but researchers need funding to *generate* that data. The loop is broken.
+1. **Sequential vs. Parallel:** Traditional grant review relies on 5-15 person committees sequentially evaluating thousands of proposals. No small committee possesses the breadth AND depth across oncology, neurology, and cardiology to price risk accurately.
+2. **The 12-Month Lag:** Review cycles take an average of 12 months. Committees make binary (fund/reject) decisions based on data that is often months out of date by the time funds are awarded.
+3. **Information Asymmetry:** VCs wait for Phase 2 data (50% success rate) to de-risk, but researchers need funding to *generate* that data. The loop is broken.
 
 ---
 
 ## 💡 The Solution: Prediction Markets for Research Quality
 
-Helix aggregates distributed expertise to evaluate hundreds of proposals simultaneously within a 30-day window. We replace bureaucracy with an **incentivized signal.**
+Helix aggregates distributed expertise, enabling hundreds of specialists to evaluate hundreds of proposals simultaneously within a 30-day window.
 
-### The Mechanism
-* **Expert-Only Markets:** Credentialed domain specialists trade YES/NO tokens based on their conviction in a proposal's scientific merit and feasibility.
-* **Reputation Weighting:** Wealth does not equal wisdom. Trades are weighted by a **Reputation Score** (PhD, h-index, prediction accuracy). A high-reputation specialist’s $1k trade carries **20-50x more weight** than a generalist’s $10k trade.
-* **Algorithmic Capital Allocation:** When a proposal reaches an **80% confidence threshold** (significantly higher than the 50% baseline), smart contracts automatically trigger funding. No committees, no politics.
-* **Risk-Free Signal:** If research is unfunded, experts receive **full refunds**. This encourages honest participation without the risk of capital loss on projects that fall below the funding threshold.
+### The Helix Mechanism
+* **Expert-Only Markets:** Credentialed domain specialists trade YES/NO tokens based on their conviction in a proposal's scientific merit and likelihood of success.
+* **Reputation Weighting:** Expertise matters more than wealth. Trades are weighted by a dynamic **Reputation Score** (PhD, h-index, prediction track record). A specialist’s $1k trade can count **20-50x more** than a generalist’s $10k, preventing wealth from overriding insight.
+* **Algorithmic Capital Allocation:** When a proposal reaches an **~80% confidence threshold** (tracked via TWAP), smart contracts automatically trigger funding. No bureaucracy, just mathematics.
+* **The Safety Net:** If research remains unfunded (doesn't hit the trust threshold), experts receive **full refunds.** This removes downside risk, encouraging honest participation without the fear of capital loss on low-quality projects.
 
----
-
-## 🛠 Tech Stack & Flare Integration
-
-Helix is built as an **Enshrined Data Protocol**, leveraging Flare’s L1 data capabilities to ensure scientific integrity.
-
-### The Flare Stack
-* **Flare Data Connector (FDC):** Used for automated verification of researcher identities (web scraping institutional affiliations) and clinical trial registrations. It acts as the final "Arbitrator of Truth," fetching trial results from ClinicalTrials.gov to resolve markets trustlessly.
-* **Flare Time Series Oracle (FTSO):** Tracks the real-time price of XRP/USD. Since grant targets are set in USD but funded in FXRP/ETH, the FTSO ensures the scientist receives the exact purchasing power required for their trial.
-* **FAssets (FXRP):** Unlocks the **$86M+ of FXRP** currently sitting idle on Flare. XRP holders provide the **CAPITAL** (Liquidity Providers) while domain specialists provide the **SIGNAL** (Prediction).
-
-### Technical Features
-* **AMM Linear Bonding Curve:** A custom Automated Market Maker built in Solidity to manage token supply and pricing.
-* **TWAP Implementation:** We use Time-Weighted Average Pricing to determine resolution thresholds, preventing flash-crashes or premature market closure due to short-term volatility.
-* **IP-NFTs (ERC-721):** Every proposal is minted as an IP-NFT, anchoring the project to the researcher's identity and protecting their intellectual property.
-* **viaIR Optimization:** Our contracts utilize the Solidity IR pipeline to handle the complex stack demands of the FDC and multi-asset pools.
+### Why Helix Wins
+| Feature | Helix (Prediction Market) | Grant Committees | DAOs / Kickstarter |
+| :--- | :--- | :--- | :--- |
+| **Speed** | 30-day parallel evaluation | 12-month sequential review | Popularity based |
+| **Logic** | Quantitative Signal (e.g. 78%) | Binary (Yes/No) vote | Wealth/Hype weighted |
+| **Stakes** | Conviction-based (Capital at risk) | No personal skin-in-game | "Cheap talk" voting |
+| **Resolution** | Verifiable data (Flare FDC) | Static snapshot | Subjective |
 
 ---
 
-## ⚖️ Ethical Safeguards & Mitigation
+## 🛠 Technical Features & Flare Integration
 
-Helix is built on a "Trust-Based Design" that assumes researchers are good actors while programmatically preventing exploitation.
+Helix is built as an **Enshrined Data Protocol**, leveraging Flare’s L1 data capabilities to ensure scientific and financial integrity.
 
-* **Insider Trading Blockade:** Helix uses a "Denied Trading List" that identifies researchers and their immediate collaborators, preventing them from trading on their own markets.
-* **HFT & Manipulation Prevention:** A transaction commission and sell-tax disincentivize high-frequency trading and predatory scalping, ensuring the market remains focused on scientific value, not speculation.
-* **Identity Verification:** Wallet-to-identity mapping ensures that reputation scores are tied to real-world credentials, preventing Sybil attacks.
-* **1x Return Cap:** Helix is designed for **recognition and grant-funding**, not hyper-speculation. This focuses participation on scientific advancement rather than "pumping" tokens.
+### 1. Verification & Resolution (Flare Data Connector)
+The **FDC** is our "Arbitrator of Truth." 
+* **Pre-Market:** Validates institutional affiliation and clinical trial registrations via attestation requests to catch fraud early.
+* **Post-Market:** Fetches and verifies trial results (ClinicalTrials.gov, PubMed) via Merkle Proofs to trustlessly resolve markets and payout winners.
+
+### 2. The XRP Liquidity Layer (FAssets & FXRP)
+We unlock the **$128B XRP market cap**. Through Flare’s **FAssets**, XRP holders bridge to **FXRP** to act as Liquidity Providers (LPs) for the grant pool. 
+* **Signal vs. Capital:** Experts provide the **SIGNAL** (Prediction), while the XRP community provides the **CAPITAL** (Funding). 
+
+### 3. Stability & Fair Pricing (FTSO & TWAP)
+* **Flare Time Series Oracle (FTSO):** Tracks real-time XRP/USD prices, ensuring funding targets hit their precise USD value regardless of crypto volatility.
+* **Time-Weighted Average Price (TWAP):** Determines resolution thresholds to prevent price manipulation and premature market closure due to short-term spikes.
+
+### 4. IP-NFTs & Data Anchoring
+Every proposal is minted as an **IP-NFT**, associating the project with the researcher's on-chain identity and protecting their intellectual property. Research data is anchored to ensure a permanent, immutable record of the discovery process.
 
 ---
 
-## 💬 Flare Feedback: Why We Chose Flare
+## 📈 Commercial Viability & Impact
 
-Most prediction markets fail because they rely on a **centralized resolver** or a committee of humans to decide who won. This creates a single point of failure and a massive "Trust Debt."
+* **Market Size:** The Phase 2 "Valley of Death" represents a **$10-20B global annual need.** Even 5% market capture facilitates **$500M-$1B** in research annually.
+* **Revenue Model:**
+    * **2% fee** on successful prediction payouts.
+    * **3% exit tax** on position changes to disincentivize HFT manipulators.
+    * **Pool management fees** (1% of deployed capital).
 
-**On Helix, the science is verifiable because Flare is a Data Network.**
-By using the **FDC**, we inherited the security of the entire Flare validator set to prove clinical trial results. We didn't have to build our own oracle; we used the one enshrined in the network. Furthermore, the **FAsset system** provided us with a unique value proposition: the ability to tell the XRP community that their idle assets can literally cure diseases.
+---
+
+## ⚖️ Trust & Ethics: Our Design Principles
+
+Helix is built on a **Trust-Based Design** that assumes researchers are good actors while programmatically preventing exploitation:
+* **Anti-Insider Trading:** Researcher accounts and their known collaborators are banned from trading in their own markets.
+* **1x Return Cap:** We focus on **recognition, not speculation.** Returns are capped to prevent hyper-speculative "pump and dump" cycles in sensitive medical markets.
+* **Identity Verification:** Wallet-to-identity mapping ensures that reputation is a finite, valuable resource that incentivizes integrity.
+
+---
+
+## 🚀 Tech Stack
+* **Frontend:** JS, React, TypeScript, Node.js
+* **Smart Contracts:** Solidity (Hardhat, viaIR optimization)
+* **Flare Integration:** FDC (Verification/Resolution), FTSO (Oracle Pricing), FAssets (XRP Liquidity)
+* **Mechanisms:** AMM (Linear Bonding Curve), TWAP, IP-NFTs
+
+---
+© 2026 Helix Protocol. Accelerating the pace of human discovery on Flare.
